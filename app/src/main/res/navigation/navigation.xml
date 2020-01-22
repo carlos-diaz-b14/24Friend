@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/rulesFragment">
+
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.a24friend.ui.rules.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_privacyAgreementFragment"
+            app:destination="@id/privacyAgreementFragment" />
+        <action
+            android:id="@+id/action_rulesFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.example.a24friend.ui.chatRoom.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room" >
+        <action
+            android:id="@+id/action_chatRoomFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchRoomFragment"
+        android:name="com.example.a24friend.ui.matchRoom.MatchRoomFragment"
+        android:label="fragment_match_room"
+        tools:layout="@layout/fragment_match_room" >
+        <action
+            android:id="@+id/action_matchRoomFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
+        <action
+            android:id="@+id/action_matchRoomFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyAgreementFragment"
+        android:name="com.example.a24friend.ui.privacyAgreement.PrivacyAgreementFragment"
+        android:label="fragment_privacy_agreement"
+        tools:layout="@layout/fragment_privacy_agreement" >
+        <action
+            android:id="@+id/action_privacyAgreementFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyFragment"
+        android:name="com.example.a24friend.ui.survey.SurveyFragment"
+        android:label="fragment_survey"
+        tools:layout="@layout/fragment_survey" >
+        <action
+            android:id="@+id/action_surveyFragment_to_matchRoomFragment"
+            app:destination="@id/matchRoomFragment" />
+    </fragment>
+</navigation>

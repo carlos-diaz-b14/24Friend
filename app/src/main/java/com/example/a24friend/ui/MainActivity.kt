@@ -1,7 +1,8 @@
-package com.example.a24friend
+package com.example.a24friend.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.a24friend.R
 
 class MainActivity : AppCompatActivity() {
 
