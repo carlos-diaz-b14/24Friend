@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.privacyAgreement.PrivacyAgreementFragment">
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Policy Agreemet"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="PrivacyAgreement"
-        android:textSize="48sp" />
+        android:orientation="vertical"
+        >
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/document"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:text="@string/privacy_policy">
+        </TextView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Got it"
+            android:background="@drawable/bgapp"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
