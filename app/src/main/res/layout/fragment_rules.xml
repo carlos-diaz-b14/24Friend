@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bgapp"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,10 +26,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/rules_headline"
+                android:textColor="#ffffff"
                 android:textSize="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/arrow_image"
+                android:layout_width="wrap_content"
+                android:layout_height="20px"
+                android:layout_gravity="bottom"
+                android:background="@drawable/arrowline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rules_headline"
+                />
 
             <TextView
                 android:id="@+id/rules_doc"
@@ -35,6 +50,7 @@
                 android:text="@string/rules_doc"
                 android:layout_marginTop="16dp"
                 android:textSize="16dp"
+                android:textColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rules_headline"
@@ -63,6 +79,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="4dp"
                 android:textSize="16dp"
+                android:textColor="#0366d6"
                 app:layout_constraintStart_toEndOf="@id/rules_privacy_policy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rules_doc"
@@ -86,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="next"
                 android:textSize="16dp"
+                android:textColor="#ffffff"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
                 app:layout_constraintVertical_bias="1"
