@@ -64,6 +64,7 @@
         do not hesitate to contact me at 24FriendTecServices@gmail.com.
 
     </string>
+
     <string name="notification_title">24Friend</string>
     <string name="match_notification_channel_id">match_channel</string>
     <string name="match_notification_channel_name">match</string>
