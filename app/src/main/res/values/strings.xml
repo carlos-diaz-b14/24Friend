@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">24Friend</string>
+
+    <string name="notification_title">24Friend</string>
+    <string name="match_notification_channel_id">match_channel</string>
+    <string name="match_notification_channel_name">match</string>
+    <string name="match_notification_channel_description">match_description</string>
+
 </resources>
