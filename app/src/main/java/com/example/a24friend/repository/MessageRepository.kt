@@ -25,4 +25,10 @@ class MessageRepository(private val database: MessageDatabase) {
             database.messageDao.insertAll(message.asDatabaseModel())
         }
     }
+
+    suspend fun clearContacts() {
+        withContext(Dispatchers.IO) {
+            database.messageDao.clear()
+        }
+    }
 }
