@@ -23,20 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(
-            this
-        ) { instanceIdResult: InstanceIdResult ->
-            val newToken = instanceIdResult.token
-            Log.d("newToken", newToken)
-            this.getPreferences(Context.MODE_PRIVATE).edit().putString("fb", newToken)
-                .apply()
-        }
-
-        Log.d(
-            "newToken",
-            this.getPreferences(Context.MODE_PRIVATE).getString("fb", "empty :(")
-        )
-
         createChannel(
             applicationContext.getString(R.string.match_notification_channel_id),
             applicationContext.getString(R.string.match_notification_channel_name))
