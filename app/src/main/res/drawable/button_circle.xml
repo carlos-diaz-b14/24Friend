@@ -3,8 +3,12 @@
     <item>
         <shape android:shape="oval">
             <stroke android:color="@color/colorPrimary" android:width="1dp" />
-            <solid android:color="@color/colorPrimaryDark"/>
             <size android:width="200dp" android:height="200dp"/>
+            <gradient
+                android:startColor="#9900ff"
+                android:endColor="#FF00FF"
+                android:angle="270"
+            />
         </shape>
     </item>
 </selector>
