@@ -15,12 +15,31 @@
         android:textSize="20dp"
         android:textStyle="bold"
         />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bgapp"
+            android:gravity="center"
+            android:text="Got It"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="300dp">
+        </Button>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/document"
@@ -29,13 +48,7 @@
             android:text="@string/privacy_policy">
         </TextView>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Got it"
-            android:background="@drawable/bgapp"
-            android:textColor="#FFFFFF"/>
+        </ScrollView>
 
     </LinearLayout>
 
