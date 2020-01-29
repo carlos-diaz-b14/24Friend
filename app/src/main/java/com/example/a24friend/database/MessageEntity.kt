@@ -10,7 +10,7 @@ data class MessageEntity constructor(
     @PrimaryKey
     val id: String = "",
     var postMessage: String,
-    var time: Date,
+    var time: Int,
     var fromUserID: String,
     var toUserID: String,
     var status: String?)
