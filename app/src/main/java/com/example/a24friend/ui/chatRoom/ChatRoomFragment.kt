@@ -7,8 +7,12 @@ import androidx.lifecycle.ViewModelProviders
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
 
 import com.example.a24friend.R
+import com.example.a24friend.databinding.FragmentChatRoomBinding
+import com.example.a24friend.domain.Message
 
 /**
  * A simple [Fragment] subclass.
@@ -23,15 +27,38 @@ class ChatRoomFragment : Fragment() {
             .get(ChatRoomViewModel::class.java)
     }
 
+    private var viewModelAdapter: ChatRoomAdapter? = null
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.message.observe(viewLifecycleOwner, Observer<List<Message>> { message ->
+            message.apply {
+                viewModelAdapter?.message = message
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat_room, container, false)
+        val binding = FragmentChatRoomBinding.inflate(inflater)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+
+        viewModelAdapter = ChatRoomAdapter()
+
+        binding.messageList.adapter = viewModelAdapter
+
+        viewModel.networkErrorStatus.observe(this, Observer<ApiStatus> {
+            if (it == ApiStatus.ERROR) {
+                Toast.makeText(activity, "Network Error", Toast.LENGTH_SHORT).show()
+                // just fetch from the database (offline cache)
+            }
+        })
+
+        setHasOptionsMenu(true)
+
+        return binding.root
     }
-
-
 }

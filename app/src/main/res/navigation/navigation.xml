@@ -24,8 +24,8 @@
         android:label="fragment_chat_room"
         tools:layout="@layout/fragment_chat_room" >
         <action
-            android:id="@+id/action_chatRoomFragment_to_surveyFragment"
-            app:destination="@id/surveyFragment" />
+            android:id="@+id/action_chatRoomFragment_to_matchRoomFragment"
+            app:destination="@id/matchRoomFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchRoomFragment"

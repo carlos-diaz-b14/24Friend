@@ -14,7 +14,7 @@ data class MessageList(
 @JsonClass(generateAdapter = true)
 data class ContactApi(val id: String,
                       val postMessage: String,
-                      val time: Date,
+                      val time: Int,
                       val fromUserID: String,
                       val toUserID: String,
                       val status: String)
