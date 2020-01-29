@@ -5,7 +5,7 @@ import androidx.lifecycle.Transformations
 import com.example.a24friend.database.MessageDatabase
 import com.example.a24friend.database.asDomainModel
 import com.example.a24friend.domain.Message
-import com.example.a24friend.network.MessageNetwork
+import com.example.a24friend.network.Network
 import com.example.a24friend.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -21,7 +21,7 @@ class MessageRepository(private val database: MessageDatabase) {
         withContext(Dispatchers.IO) {
             Timber.d("refreshContacts() called")
             database.messageDao.clear()
-            val message = MessageNetwork.message.getMessageAsync(20).await()
+            val message = Network.api.getMessageAsync(20).await()
             database.messageDao.insertAll(message.asDatabaseModel())
         }
     }

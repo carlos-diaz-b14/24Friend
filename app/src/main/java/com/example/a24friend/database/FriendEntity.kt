@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.a24friend.domain.Friend
 
-@Entity(tableName = "contacts")
+@Entity(tableName = "friend")
 data class FriendEntity constructor(
     @PrimaryKey
     val id: String = "",
