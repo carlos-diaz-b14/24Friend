@@ -13,19 +13,21 @@
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="30dp"
+        android:textStyle="bold"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp">
+        android:layout_height="05dp"
+        android:gravity="bottom">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_weight="3"
-            app:srcCompat="@drawable/aroow"
+            app:srcCompat="@drawable/whiteline"
             android:layout_gravity="bottom"
             android:background="@drawable/aroow"
 
@@ -40,9 +42,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Choose Nickname To Identify Yourself"
+            android:text="Choose Nickname"
             android:gravity="left"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:layout_marginLeft="25dp">
 
@@ -84,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Choose City Of You`re Interest"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:layout_marginLeft="25dp"
             android:gravity="bottom">
@@ -99,7 +101,7 @@
         android:gravity="center">
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinner_survey_cities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
@@ -120,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Choose 1 or more Languages"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:layout_marginLeft="25dp"
             />
@@ -137,7 +139,7 @@
             android:text="Of You´re Interest:"
             android:textColor="@color/colorPrimary"
             android:layout_marginLeft="25dp"
-            android:textSize="20dp">
+            android:textSize="15dp">
 
         </TextView>
 
@@ -148,7 +150,7 @@
         android:layout_height="70dp">
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner_survey_languages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
@@ -167,7 +169,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/surveybutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -175,7 +177,7 @@
             android:layout_marginLeft="150dp"
             android:layout_marginRight="150dp"
             android:layout_gravity="center"
-            android:background="#CCCCCC"
+            android:background="@drawable/orange_button"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
 
