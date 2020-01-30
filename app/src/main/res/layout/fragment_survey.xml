@@ -70,7 +70,12 @@
             android:layout_height="wrap_content"
             android:hint="Nickname"
             android:textColor="@color/colorPrimary"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
 
 
 
