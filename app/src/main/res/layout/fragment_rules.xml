@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bgapp"
     >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bgapp"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -85,6 +81,7 @@
                 app:layout_constraintTop_toBottomOf="@id/rules_doc"
                 />
 
+
             <CheckBox
                 android:id="@+id/rules_acceptCheckBox"
                 android:layout_width="wrap_content"
@@ -117,4 +114,4 @@
 
     </ScrollView>
 
-</LinearLayout>
+</layout>
