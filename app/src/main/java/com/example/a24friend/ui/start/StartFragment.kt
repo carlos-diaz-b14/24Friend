@@ -41,11 +41,11 @@ class StartFragment : Fragment() {
             when {
                 userInfo == null -> navController.navigate(R.id.action_startFragment_to_rulesFragment)
                 userInfo.nickname == null -> {
-                    activity._userId = userInfo.userId
+                    activity.mUserId = userInfo.userId
                     navController.navigate(R.id.action_startFragment_to_surveyFragment)
                 }
                 else -> {
-                    activity._userId = userInfo.userId
+                    activity.mUserId = userInfo.userId
                     navController.navigate(R.id.action_startFragment_to_matchRoomFragment)
                 }
             }

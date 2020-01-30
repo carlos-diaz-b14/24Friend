@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     // TOPIC must be same as one in the cloud function
     private val TOPIC = "default"
-    var _userId = ""
+    // TODO perhaps it will not work when the activity collapsed
+    var mUserId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
