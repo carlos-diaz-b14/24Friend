@@ -5,6 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
+interface UserDao {
+    @Insert
+    fun insert(user: UserEntity)
+
+    @Query("SELECT * FROM user")
+    fun getUser() : UserEntity
+
+    @Update
+    fun update(user: UserEntity)
+
+    @Query("DELETE FROM user")
+    fun clear()
+}
+
+@Dao
 interface MessageDao {
     @Insert
     fun insert(message: MessageEntity)
@@ -19,9 +34,10 @@ interface MessageDao {
     fun clear()
 }
 
-@Database(entities = [MessageEntity::class], version = 1, exportSchema = false)
+@Database(entities = [MessageEntity::class, UserEntity::class], version = 1, exportSchema = false)
 abstract class MessageDatabase : RoomDatabase() {
     abstract val messageDao: MessageDao
+    abstract val userDao: UserDao
 }
 
 private lateinit var INSTANCE: MessageDatabase

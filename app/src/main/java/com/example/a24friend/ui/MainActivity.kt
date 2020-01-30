@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a24friend.R
+import com.example.a24friend.database.getDatabase
 import com.google.firebase.messaging.FirebaseMessaging
 
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     // TOPIC must be same as one in the cloud function
     private val TOPIC = "default"
+    var _userId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
