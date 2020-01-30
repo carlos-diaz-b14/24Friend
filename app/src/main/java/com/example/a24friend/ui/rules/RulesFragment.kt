@@ -1,6 +1,7 @@
 package com.example.a24friend.ui.rules
 
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,10 +13,13 @@ import com.example.a24friend.databinding.FragmentRulesBinding
 
 import com.example.a24friend.R
 
+
 /**
  * A simple [Fragment] subclass.
  */
-class RulesFragment : Fragment() {
+class RulesFragment : Fragment(){
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,3 +39,4 @@ class RulesFragment : Fragment() {
         return binding.root
     }
 }
+
