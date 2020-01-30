@@ -13,11 +13,20 @@
         tools:layout="@layout/fragment_rules" >
         <action
             android:id="@+id/action_rulesFragment_to_privacyAgreementFragment"
-            app:destination="@id/privacyAgreementFragment" />
+            app:destination="@id/privacyAgreementFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+           />
         <action
             android:id="@+id/action_rulesFragment_to_surveyFragment"
-            app:destination="@id/surveyFragment" />
+            app:destination="@id/surveyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
+
+
     <fragment
         android:id="@+id/chatRoomFragment"
         android:name="com.example.a24friend.ui.chatRoom.ChatRoomFragment"
