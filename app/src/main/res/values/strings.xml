@@ -2,8 +2,52 @@
     <string name="app_name">24Friend</string>
 
     <string name="rules_headline">What you need to know</string>
-    <string name="rules_doc">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
-    <string name="rules_doc2">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
+    <string name="rules_doc">
+        INTRO
+
+\nThe purpose of this application is for you to find new friends in your area,
+
+\n\nThis application runs in an ANONYMUS profile, so you don’t have to worry about uploading personal information. We hope you enjoy this APP.
+
+\n\n First you need to Know how this application works.
+
+\n \n Privacy Policy.
+
+\n 1.- You have to read and agree to our Privacy Policy Agreement if you want to continue.
+
+\n \n Answer a quick survey.
+
+\n 2.-Choose a Nickname (use appropriate words for this field, the use of racial slur, offenses, and any other inappropriate Nicknames will NOT BE ALLOWED)
+
+\n 3.- Enter the name of the city you are living in.
+
+\n 4.- Enter the languages you speak, read and understand.
+
+\n 5.- Hit DONE button.
+
+\n \n Match Room
+
+\n 6.- Hit FIND MATCH button and wait for a few seconds until the application find for you a match.
+
+\n 7.- This application is going to create a match for you with a person who lives near you and speak the same language.
+
+\n 8.- When the application finds a match for you, the color of the button changes to a new function called CHAT. Tap the button and have fun.
+
+\n \n Chat Room
+
+\n 9.- Now that you can start chatting with the match, we found for you.
+
+\n 10.-This window is only available for 24 hrs. from the moment you joined the chat room, after 	      24 hrs the window will close and you will not be able to talk to that match.
+
+\n Note: If you liked the person you are talking try to exchange another way of contact.
+
+\n 11.- If you don’t like the person you matched you will have to exit the room using the button located in upper right corner.
+
+\n \n Exit
+
+\n 12.- This application is called 24 hrs Friend cause every 24 hrs you can find a new match for you. If you exit the chat room you will have to wait the remain time left to fulfill 24 hrs and then you will be able to find a new match.
+
+\n \n24 Friend hopes you have fun using this application, you will not know if the person you are talking to is a Female or Male so have fun trying to figure it out.  </string>
     <string name="rules_privacy_policy">privacy policy: </string>
     <string name="rules_privacy_policy_more">Learn more</string>
 
