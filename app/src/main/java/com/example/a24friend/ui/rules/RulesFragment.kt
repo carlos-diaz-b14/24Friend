@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import com.example.a24friend.databinding.FragmentRulesBinding
 
 import com.example.a24friend.R
 
@@ -18,9 +21,17 @@ class RulesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rules, container, false)
+        val binding = DataBindingUtil.inflate<FragmentRulesBinding>(inflater,
+            R.layout.fragment_rules,container,false)
+
+        binding.rulesPrivacyPolicyMore.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_rulesFragment_to_privacyAgreementFragment)
+        }
+
+        binding.rulesNextButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_rulesFragment_to_surveyFragment)
+        }
+
+        return binding.root
     }
-
-
 }
