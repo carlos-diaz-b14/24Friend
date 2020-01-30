@@ -42,14 +42,15 @@ class SurveyViewModel(
     fun createUserInfo() {
         _error.value = false
         try {
-            var result = getUserId(userId)
+            var result = getUserId("")
             result
                 .continueWith { task ->
                     // This continuation runs on either success or failure, but if the task
                     // has failed then result will throw an Exception which will be
                     // propagated down.
                     val result = task.result?.data as String
-                    _user.value = UserEntity(result, "", "", "", "")
+                    Log.d("task", result)
+//                    _user.value = UserEntity(result, "", "", "", "")
                 }
         } catch (e: Exception) {
             Log.e("callGetUser", e.message)

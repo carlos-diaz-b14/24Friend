@@ -23,11 +23,10 @@ import com.google.firebase.functions.HttpsCallableResult
 fun getUserId(userId: String): Task<HttpsCallableResult> {
     // Create the arguments to the callable function.
     val data = hashMapOf(
-        "user_id" to userId
+        "user_doc_id" to userId
     )
-    var region = "us-central1"
 
-    var functions = FirebaseFunctions.getInstance(FirebaseApp.getInstance(), region)
+    var functions = FirebaseFunctions.getInstance()
 
     return functions
         .getHttpsCallable("get_user")
@@ -37,13 +36,6 @@ fun getUserId(userId: String): Task<HttpsCallableResult> {
                 throw CloudFunctionException(task.exception?.message.toString())
             }
         }
-//        .continueWith { task ->
-//            // This continuation runs on either success or failure, but if the task
-//            // has failed then result will throw an Exception which will be
-//            // propagated down.
-//            val result = task.result?.data as String
-//            result
-//        }
 }
 
 class CloudFunctionException(msg: String): Exception(msg)
