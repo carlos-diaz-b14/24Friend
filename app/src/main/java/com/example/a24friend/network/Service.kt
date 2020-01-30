@@ -15,9 +15,11 @@ interface ApiService {
     @POST("get_user")
     fun getUserIdAsync(@Field("user_doc_id") id: String): Deferred<String>
 
-
-    @GET("")
-    fun getMessageAsync(@Query("results") num: Int): Deferred<MessageList>
+    @POST("match_room")
+    fun matchRoomAsync(@Field("user_doc_id") user_id: String,
+                       @Field("city_doc_id") city_id: String,
+                       @Field("languages") languages: List<String>)
+            : Deferred<ChatRoom>
 }
 
 object Network {

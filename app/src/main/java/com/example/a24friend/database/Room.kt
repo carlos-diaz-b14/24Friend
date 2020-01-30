@@ -13,7 +13,7 @@ interface MessageDao {
     fun insertAll(message: List<MessageEntity>)
 
     @Query("SELECT * FROM message ORDER BY time")
-    fun getAllContacts() : LiveData<List<MessageEntity>>
+    fun getAllMessages() : LiveData<List<MessageEntity>>
 
     @Query("DELETE FROM message")
     fun clear()

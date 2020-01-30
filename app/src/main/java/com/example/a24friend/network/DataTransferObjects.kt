@@ -1,46 +1,48 @@
 package com.example.a24friend.network
 
-import com.example.a24friend.database.MessageEntity
-import com.example.a24friend.domain.Message
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import java.util.*
 
 @JsonClass(generateAdapter = true)
-data class MessageList(
-    @field:Json(name="results")
-    val messageList: List<ContactApi>)
+data class UserApi(
+    @field:Json(name = "user_doc_id")
+    val userId: String)
 
 @JsonClass(generateAdapter = true)
-data class ContactApi(val id: String,
-                      val postMessage: String,
-                      val time: Int,
-                      val fromUserID: String,
-                      val toUserID: String,
-                      val status: String)
+data class ChatRoomApi(
+    @field:Json(name = "id")
+    val chatRoomId: String,
+    @field:Json(name = "first_user_doc_id")
+    val userId: String,
+    @field:Json(name = "last_user_doc_id")
+    val matchUserId: String,
+    @field:Json(name = "city_doc_id")
+    val cityId: String,
+    val languages: List<String>,
+    @field:Json(name ="started_at" )
+    val startedAt: Date,
+    @field:Json(name = "ended_at")
+    val endedAt: Date)
 
-fun MessageList.asDatabaseModel(): List<MessageEntity> {
-    return messageList.map {
-        MessageEntity(
-            id = it.id,
-            postMessage = it.postMessage,
-            time = it.time,
-            fromUserID = it.fromUserID,
-            toUserID = it.toUserID,
-            status = it.status
-        )
-    }
-}
+@JsonClass(generateAdapter = true)
+data class CitysApi(
+    @field:Json(name = "city")
+    val cityList: List<CityApi>)
 
-fun MessageList.asDomainModel(): List<Message> {
-    return messageList.map {
-        Message(
-            id = it.id,
-            postMessage = it.postMessage,
-            time = it.time,
-            fromUserID = it.fromUserID,
-            toUserID = it.toUserID,
-            status = it.status
-        )
-    }
-}
+@JsonClass(generateAdapter = true)
+data class CityApi(
+    @field:Json(name = "doc_id")
+    val id: String,
+    val name: String)
+
+@JsonClass(generateAdapter = true)
+data class LanguagesApi(
+    @field:Json(name = "language")
+    val languageList: List<LanguageApi>)
+
+@JsonClass(generateAdapter = true)
+data class LanguageApi(
+    @field:Json(name = "doc_id")
+    val id: String,
+    val name: String)

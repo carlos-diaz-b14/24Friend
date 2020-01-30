@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import com.example.a24friend.R
 import com.example.a24friend.databinding.FragmentChatRoomBinding
 import com.example.a24friend.domain.Message
+import com.example.a24friend.util.ApiStatus
 
 /**
  * A simple [Fragment] subclass.
@@ -49,13 +50,6 @@ class ChatRoomFragment : Fragment() {
         viewModelAdapter = ChatRoomAdapter()
 
         binding.messageList.adapter = viewModelAdapter
-
-        viewModel.networkErrorStatus.observe(this, Observer<ApiStatus> {
-            if (it == ApiStatus.ERROR) {
-                Toast.makeText(activity, "Network Error", Toast.LENGTH_SHORT).show()
-                // just fetch from the database (offline cache)
-            }
-        })
 
         setHasOptionsMenu(true)
 

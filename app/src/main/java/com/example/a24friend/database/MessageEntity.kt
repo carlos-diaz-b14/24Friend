@@ -10,20 +10,18 @@ data class MessageEntity constructor(
     @PrimaryKey
     val id: String = "",
     var postMessage: String,
-    var time: Int,
-    var fromUserID: String,
-    var toUserID: String,
-    var status: String?)
+    val fromUserID: String,
+    val chatRoomID: String,
+    var time: Int)
 
 fun List<MessageEntity>.asDomainModel(): List<Message> {
     return map {
         Message(
             id = it.id,
             postMessage = it.postMessage,
-            time = it.time,
             fromUserID = it.fromUserID,
-            toUserID = it.toUserID,
-            status = it.status
+            chatRoomID = it.chatRoomID,
+            time = it.time
         )
     }
 }
