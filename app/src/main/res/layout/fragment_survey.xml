@@ -56,8 +56,8 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="25dp">
 
 
@@ -70,7 +70,13 @@
             android:layout_height="wrap_content"
             android:hint="Nickname"
             android:textColor="@color/colorPrimary"
-            android:textSize="20dp"/>
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            />
 
 
 

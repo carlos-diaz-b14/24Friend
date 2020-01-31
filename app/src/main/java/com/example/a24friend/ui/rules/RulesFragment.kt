@@ -1,6 +1,7 @@
 package com.example.a24friend.ui.rules
 
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,14 +12,16 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.a24friend.databinding.FragmentRulesBinding
-
 import com.example.a24friend.R
+
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class RulesFragment : Fragment() {
     private val viewModel = RulesViewModel()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +49,9 @@ class RulesFragment : Fragment() {
             binding.rulesNextButton.isEnabled = isChecked
         }
 
+
         return binding.root
     }
 
 }
+
