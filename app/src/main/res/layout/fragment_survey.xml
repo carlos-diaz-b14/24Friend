@@ -183,8 +183,7 @@
             android:layout_marginLeft="150dp"
             android:layout_marginRight="150dp"
             android:layout_gravity="center"
-            android:background="@drawable/orange_button"
-            android:textColor="@color/colorPrimary"/>
+            android:background="@drawable/orange_button" />
     </LinearLayout>
 
     <LinearLayout
