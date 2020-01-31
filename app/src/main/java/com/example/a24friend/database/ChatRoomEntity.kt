@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.a24friend.domain.ChatRoom
 import java.util.*
 
-@Entity(tableName = "room")
+@Entity(tableName = "chatRoom")
 data class ChatRoomEntity constructor(
     @PrimaryKey
     val id: String = "",

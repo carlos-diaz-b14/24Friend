@@ -1,5 +1,6 @@
 package com.example.a24friend.network
 
+import com.example.a24friend.domain.ChatRoom
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
