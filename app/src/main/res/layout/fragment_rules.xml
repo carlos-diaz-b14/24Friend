@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.a24friend.ui.rules.RulesViewModel" />
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -87,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:checked="@{viewModel.navigateToSurvey}"
                 android:textSize="16dp"
                 android:text="Accept"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,14 +106,15 @@
                 android:layout_height="wrap_content"
                 android:text="next"
                 android:textSize="16dp"
-                android:textColor="#ffffff"
+                android:onClick="@{() -> viewModel.onNavigateToSurvey()}"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
+                android:background="@drawable/orange_button"
                 app:layout_constraintVertical_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rules_acceptCheckBox"
-                app:layout_constraintBottom_toBottomOf="parent" />                    app:layout_constraintTop_toBottomOf="@id/rules_acceptCheckBox" />
+                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
