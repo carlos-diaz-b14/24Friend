@@ -1,30 +1,34 @@
 package com.example.a24friend.network
 
+import com.example.a24friend.domain.ChatRoom
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Field
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
-/**
- * A retrofit service to fetch a contact list.
- */
-interface MessageApiService {
-    @GET("")
-    fun getMessageAsync(@Query("results") num: Int): Deferred<MessageList>
+const val BASE_URL = "https://asia-northeast1-bubbly-trail-265822.cloudfunctions.net/"
+
+interface ApiService {
+    @POST("get_user")
+    fun getUserIdAsync(@Field("user_doc_id") id: String): Deferred<String>
+
+    @POST("match_room")
+    fun matchRoomAsync(@Field("user_doc_id") user_id: String,
+                       @Field("city_doc_id") city_id: String,
+                       @Field("languages") languages: List<String>)
+            : Deferred<ChatRoom>
 }
 
-/**
- * Main entry point for network access.
- * call like `ContactNetwork.contacts.getContacts()`
- */
-object MessageNetwork {
+object Network {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://randomuser.me/api/")
+        .baseUrl(BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
-    val message: MessageApiService = retrofit.create(MessageApiService::class.java)
+    val api: ApiService = retrofit.create(ApiService::class.java)
 }
