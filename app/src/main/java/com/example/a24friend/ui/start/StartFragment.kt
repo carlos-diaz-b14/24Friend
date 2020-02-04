@@ -36,6 +36,9 @@ class StartFragment : Fragment() {
 
     private fun initialize() {
         CoroutineScope(Dispatchers.Main + Job()).launch {
+            // TODO delete this later
+            clearUser()
+
             var userInfo = getUserInfo()
             val navController = findNavController()
             when {
@@ -56,6 +59,12 @@ class StartFragment : Fragment() {
         return withContext(Dispatchers.IO) {
             var user = database.getUser()
             user
+        }
+    }
+
+    private suspend fun clearUser(){
+        return withContext(Dispatchers.IO) {
+            database.clear()
         }
     }
 

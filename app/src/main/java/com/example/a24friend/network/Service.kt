@@ -12,7 +12,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
-const val BASE_URL = "https://asia-northeast1-bubbly-trail-265822.cloudfunctions.net/"
+const val BASE_URL = "https://us-central1-bubbly-trail-265822.cloudfunctions.net/"
 
 interface ApiService {
     @POST("get_user")
