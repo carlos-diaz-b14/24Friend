@@ -30,6 +30,7 @@
             android:layout_height="05dp"
             android:gravity="bottom">
 
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="30dp"
@@ -63,8 +64,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="25dp">
 
 
@@ -72,9 +73,15 @@
                 android:id="@+id/nicknamebox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:hint="Nickname"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,8 +185,7 @@
                 android:layout_marginRight="150dp"
                 android:layout_weight="1"
                 android:background="@drawable/orange_button"
-                android:text="DONE"
-                android:textColor="@color/colorPrimary" />
+                android:text="DONE" />
         </LinearLayout>
 
         <LinearLayout
