@@ -1,8 +1,9 @@
-package com.example.a24friend.ui.notifications
+package com.example.a24friend.network
 
 import android.app.NotificationManager
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.example.a24friend.ui.notifications.sendNotification
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 

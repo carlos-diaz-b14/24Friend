@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/rulesFragment">
+    app:startDestination="@id/startFragment">
 
     <fragment
         android:id="@+id/rulesFragment"
@@ -65,5 +65,20 @@
         <action
             android:id="@+id/action_surveyFragment_to_matchRoomFragment"
             app:destination="@id/matchRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.a24friend.ui.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_matchRoomFragment"
+            app:destination="@id/matchRoomFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment" />
     </fragment>
 </navigation>

@@ -1,205 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bgapp">
+<layout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="Tell us More About You"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        />
+    <data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="05dp"
-        android:gravity="bottom">
+        <variable
+            name="viewModel"
+            type="com.example.a24friend.ui.survey.SurveyViewModel" />
 
+    </data>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="3"
-            app:srcCompat="@drawable/whiteline"
-            android:layout_gravity="bottom"
-            android:background="@drawable/aroow"
-
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="bottom">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Choose Nickname"
-            android:gravity="left"
-            android:textSize="15dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginLeft="25dp">
-
-        </TextView>
-
-
-    </LinearLayout>
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="25dp">
-
-
-
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nicknamebox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nickname"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-            android:maxLines="1"
-            android:scrollHorizontally="true"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            />
-
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="bottom">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Choose City Of You`re Interest"
-            android:textSize="15dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginLeft="25dp"
-            android:gravity="bottom">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:gravity="center">
-
-        <Spinner
-            android:id="@+id/spinner_survey_cities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="40dp">
-
-        </Spinner>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Choose 1 or more Languages"
-            android:textSize="15dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginLeft="25dp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="bottom"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Of You´re Interest:"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginLeft="25dp"
-            android:textSize="15dp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <Spinner
-            android:id="@+id/spinner_survey_languages"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="40dp">
-
-        </Spinner>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center">
-
-
-        <Button
-            android:id="@+id/surveybutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="DONE"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="150dp"
-            android:layout_gravity="center"
-            android:background="@drawable/orange_button" />
-    </LinearLayout>
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="top">
+        android:background="@drawable/bgapp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="Tell us More About You"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="05dp"
+            android:gravity="bottom">
 
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            app:srcCompat="@drawable/logo"
-            android:layout_gravity="top"/>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="3"
+                android:background="@drawable/aroow"
+                app:srcCompat="@drawable/whiteline"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:gravity="left"
+                android:text="Choose Nickname"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nicknamebox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="Nickname"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:gravity="bottom"
+                android:text="Choose City Of You`re Interest"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spinner_survey_cities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="40dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:text="Choose 1 or more Languages"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:text="Of You´re Interest:"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <Spinner
+                android:id="@+id/spinner_survey_languages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="40dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center">
+
+
+            <Button
+                android:id="@+id/surveybutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/orange_button"
+                android:text="DONE" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top">
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="4"
+                app:srcCompat="@drawable/logo" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>
