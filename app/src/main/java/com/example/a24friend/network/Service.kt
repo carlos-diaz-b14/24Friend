@@ -23,7 +23,7 @@ interface MessageApiService {
  */
 object MessageNetwork {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://randomuser.me/api/")
+        .baseUrl("https://us-central1-bubbly-trail-265822.cloudfunctions.net/")
         .addConverterFactory(MoshiConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

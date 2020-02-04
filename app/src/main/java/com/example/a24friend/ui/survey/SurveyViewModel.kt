@@ -1,73 +1,148 @@
 package com.example.a24friend.ui.survey
 
 import android.app.Application
-import android.app.Dialog
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.a24friend.database.UserDao
 import com.example.a24friend.database.UserEntity
+import com.example.a24friend.network.getCities
 import com.example.a24friend.network.getUserId
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
+
+private const val TAG = "SurveyViewModel"
 
 class SurveyViewModel(
     val database: UserDao,
-    val userId: String,
+    val uid: String,
     application: Application
 ) : AndroidViewModel(application) {
 
     private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    private val dbScope = CoroutineScope(Dispatchers.IO + viewModelJob)
     private var displayUser = MutableLiveData<UserEntity?>()
+    private val _userId = MutableLiveData<String?>()
+    val userId: LiveData<String?>
+        get() = _userId
     private val _user = MutableLiveData<UserEntity>()
     val user: LiveData<UserEntity>
         get() = _user
+    private val _cities = MutableLiveData<Array<String>>()
+    val cities: LiveData<Array<String>>
+        get() = _cities
+    private val _langueges = MutableLiveData<Array<String>>()
+    val languages: LiveData<Array<String>>
+        get() = _langueges
     private val _error = MutableLiveData<Boolean>()
     val error: LiveData<Boolean>
         get() = _error
 
     init {
         _error.value = false
-        when (userId) {
-            "" -> createUserInfo()
-            else -> getUserInfo()
+        when (uid) {
+            "" -> initializeUserInfo()
+            else -> _userId.value = uid
         }
     }
 
-    // TODO create userInfo when the survey is opened for the first time
-    fun createUserInfo() {
-        _error.value = false
-        try {
-            var result = getUserId("")
-            result
-                .continueWith { task ->
-                    // This continuation runs on either success or failure, but if the task
-                    // has failed then result will throw an Exception which will be
-                    // propagated down.
-                    val result = task.result?.data as String
-                    Log.d("task", result)
-//                    _user.value = UserEntity(result, "", "", "", "")
+    private fun setCityOptions() {
+        viewModelScope.launch {
+            try {
+                var citiesHm = getCities()
+                if (citiesHm.isNullOrEmpty()) {
+                    return@launch
                 }
-        } catch (e: Exception) {
-            Log.e("callGetUser", e.message)
-            _error.value = true
+                var keys = citiesHm?.keys
+                var cityArray = mutableListOf<String>()
+                for (key in keys) {
+                    cityArray.add(citiesHm[key]!!)
+                }
+                _cities.value = cityArray.toTypedArray()
+            } catch (e: Exception) {
+                Log.e(TAG, e.message)
+                _error.value = true
+            }
         }
     }
 
-    // TODO get userInfo to display default value
-    fun getUserInfo() {
+    private fun setLanguageOptions() {
+
     }
 
-    // TODO insert userInfo when "done" is tapped and userInfo hasn't created
+    private fun initializeUserInfo() {
+        // create userInfo when the survey is opened for the first time
+        // cloud function
+        viewModelScope.launch {
+            try {
+                _userId.value = getUserId(uid)
+            } catch (e: Exception) {
+                Log.e(TAG, e.message)
+                _error.value = true
+            }
+        }
+    }
 
-    // TODO update userInfo when "done" is tapped and userInfo has already created
+    fun setUser() {
+        setUserInfo()
+    }
 
-    // TODO required check
+    private fun setUserInfo() {
+        // get user to display default value
+        dbScope.launch {
+            var result = database.getUser()
+            // register user if it hasn't registered
+            if (result == null) {
+                val token = getToken()
+                result = UserEntity(_userId.value!!, token, null, null, null)
+                database.insert(result)
+            }
+            _user.value = result
+        }
+    }
 
-    // TODO convert language list into string
+    private suspend fun getToken(): String {
+        return withContext(Dispatchers.IO) {
+            FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Log.w(TAG, "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
+                })
+                .continueWith { task ->
+                    // Get new Instance ID token
+                    val token = task.result?.token
+                    // Log and toast
+                    Log.d(TAG, "Token: $token")
+
+                    token!!
+                }.await()
+        }
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.cancel()
+        dbScope.cancel()
+    }
+
+// TODO insert userInfo when "done" is tapped and userInfo hasn't created
+//    fun insertUserInfo() {
+//        if (_user.value != null) {
+//            database.insert(_user.value!!)
+//        }
+//    }
+
+// TODO update userInfo when "done" is tapped and userInfo has already created
+
+// TODO required check
+
+// TODO convert language list into string
 
 }
