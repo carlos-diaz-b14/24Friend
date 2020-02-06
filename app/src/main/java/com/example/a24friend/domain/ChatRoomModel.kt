@@ -9,5 +9,5 @@ data class ChatRoom(val id: String,
                     val userID: String,
                     val matchUserID: String,
                     val city: String,
-                    val language: List<String>,
-                    val startedAt: Date) : Parcelable
+                    val language: String,
+                    val startedAt: Int) : Parcelable
