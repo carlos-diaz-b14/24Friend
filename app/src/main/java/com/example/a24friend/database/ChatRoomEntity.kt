@@ -12,8 +12,8 @@ data class ChatRoomEntity constructor(
     var userID: String,
     var matchUserID: String,
     val city: String,
-    val language: List<String>,
-    var startedAt: Date)
+    val language: String,
+    var startedAt: Int)
 
 fun ChatRoomEntity.asDomainModel(): ChatRoom {
     return ChatRoom(

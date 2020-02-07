@@ -27,10 +27,10 @@ suspend fun getUserId(userId: String): String? {
     }
 }
 
-suspend fun getCities(): HashMap<String, String>? {
+suspend fun getCities(): ArrayList<HashMap<String, String>>? {
     var functions: FirebaseFunctions = FirebaseFunctions.getInstance()
     return withContext(Dispatchers.IO) {
-        functions.getHttpsCallable("get_user")
+        functions.getHttpsCallable("get_city")
             .call()
             .addOnCompleteListener { task: Task<HttpsCallableResult> ->
                 if (!task.isSuccessful) {
@@ -38,13 +38,13 @@ suspend fun getCities(): HashMap<String, String>? {
                 }
             }
             .continueWith { task ->
-                var hm = task.result?.data as HashMap<String, HashMap<String, String>>
+                var hm = task.result?.data as HashMap<String, ArrayList<HashMap<String, String>>>
                 hm["city"]
             }.await()
     }
 }
 
-suspend fun getLanguages(): HashMap<String, String>? {
+suspend fun getLanguages(): ArrayList<HashMap<String, String>>? {
     var functions: FirebaseFunctions = FirebaseFunctions.getInstance()
     return withContext(Dispatchers.IO) {
         functions.getHttpsCallable("get_language")
@@ -55,7 +55,7 @@ suspend fun getLanguages(): HashMap<String, String>? {
                 }
             }
             .continueWith { task ->
-                var hm = task.result?.data as HashMap<String, HashMap<String, String>>
+                var hm = task.result?.data as HashMap<String, ArrayList<HashMap<String, String>>>
                 hm["language"]
             }.await()
     }
