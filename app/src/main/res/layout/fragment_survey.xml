@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:hint="Nickname"
+                android:text="@{viewModel.user.nickname}"
                 android:imeOptions="actionDone"
                 android:maxLines="1"
                 android:scrollHorizontally="true"
