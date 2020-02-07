@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 
 import com.example.a24friend.R
 import com.example.a24friend.databinding.FragmentChatRoomBinding
@@ -35,6 +37,11 @@ class MatchRoomFragment : Fragment() {
         binding.viewModel = viewModel
 
         setHasOptionsMenu(true)
+        var button: Button = binding.root.findViewById(R.id.match_button)
+        button.setOnClickListener(View.OnClickListener {
+            var navController = findNavController()
+            navController.navigate(R.id.action_matchRoomFragment_to_chatRoomFragment)
+        })
 
         return binding.root
     }
