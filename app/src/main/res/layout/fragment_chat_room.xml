@@ -9,20 +9,55 @@
             type="com.example.a24friend.ui.chatRoom.ChatRoomViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/message_list"
+        <ScrollView
+            android:id="@+id/message_scroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_incoming_message"
-            tools:context=".ui.main.ContactsFragment"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/message_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:context=".ui.main.ContactsFragment"
+                tools:listitem="@layout/item_incoming_message" />
+
+        </ScrollView>
+
+        <EditText
+            android:id="@+id/input_message"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:gravity="bottom"
+
+            app:layout_constraintEnd_toStartOf="@id/button_send_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="8"
+            app:layout_constraintHorizontal_chainStyle="spread" />
+
+        <Button
+            android:id="@+id/button_send_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="submit"
+
+            app:layout_constraintStart_toEndOf="@id/input_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
