@@ -57,10 +57,10 @@ class SurveyViewModel(
         _error.value = false
         setCityOptions()
         setLanguageOptions()
-        when (uid) {
-            "" -> initializeUserInfo()
-            else -> _userId.value = uid
-        }
+//        when (uid) {
+//            "" -> initializeUserInfo()
+//            else -> _userId.value = uid
+//        }
     }
 
     private fun setCityOptions() {

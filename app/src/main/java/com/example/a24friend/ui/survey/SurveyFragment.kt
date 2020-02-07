@@ -6,14 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 
 import com.example.a24friend.R
 import com.example.a24friend.database.getDatabase
@@ -49,11 +47,11 @@ class SurveyFragment : Fragment() {
                 Toast.makeText(context, "Failed to connect the server.", Toast.LENGTH_LONG)
             }
         })
-        viewModel.userId.observe(this, Observer { userId ->
-            if (userId!!.isNotEmpty()) {
-                viewModel.setUser()
-            }
-        })
+//        viewModel.userId.observe(this, Observer { userId ->
+//            if (userId!!.isNotEmpty()) {
+//                viewModel.setUser()
+//            }
+//        })
 
         var citySpinner: Spinner = binding.root.findViewById(R.id.spinner_survey_cities)
         viewModel.cities.observe(this, Observer { cities ->
@@ -61,25 +59,31 @@ class SurveyFragment : Fragment() {
             adapter.addAll(cities.values)
             citySpinner.setAdapter(adapter)
         })
-        citySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                viewModel.selectCity(parent!!.getItemAtPosition(position) as String)
-            }
-        }
+//        citySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//            }
+//
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                viewModel.selectCity(parent!!.getItemAtPosition(position) as String)
+//            }
+//        }
 
         var languageSpinner: Spinner = binding.root.findViewById(R.id.spinner_survey_languages)
         viewModel.languages.observe(this, Observer { languages ->
             val adapter = ArrayAdapter<String>(context!!, R.layout.support_simple_spinner_dropdown_item)
             adapter.addAll(languages.values)
             languageSpinner.setAdapter(adapter)
+        })
+
+        var button: Button = binding.root.findViewById(R.id.surveybutton)
+        button.setOnClickListener(View.OnClickListener {
+            var navController = findNavController()
+            navController.navigate(R.id.action_surveyFragment_to_matchRoomFragment)
         })
 
         // Inflate the layout for this fragment
