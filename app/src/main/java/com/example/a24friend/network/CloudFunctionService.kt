@@ -61,6 +61,29 @@ suspend fun getLanguages(): ArrayList<HashMap<String, String>>? {
     }
 }
 
+suspend fun postChat(
+    message: String,
+    userDocId: String,
+    roomDocId: String
+) {
+    val data = hashMapOf(
+        "message" to message,
+        "user_doc_id" to userDocId,
+        "room_doc_id" to roomDocId
+    )
+
+    var functions: FirebaseFunctions = FirebaseFunctions.getInstance()
+    withContext(Dispatchers.IO) {
+        functions.getHttpsCallable("set_user_survey")
+            .call(data)
+            .addOnCompleteListener { task: Task<HttpsCallableResult> ->
+                if (!task.isSuccessful) {
+                    throw CloudFunctionException(task.exception?.message.toString())
+                }
+            }.await()
+    }
+}
+
 suspend fun setUser(
     userId: String,
     nickname: String,

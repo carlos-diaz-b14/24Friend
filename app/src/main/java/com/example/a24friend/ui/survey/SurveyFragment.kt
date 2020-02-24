@@ -60,7 +60,7 @@ class SurveyFragment : Fragment() {
             citySpinner.setAdapter(adapter)
         })
 //        citySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//            overr ide fun onNothingSelected(parent: AdapterView<*>?) {
 //            }
 //
 //            override fun onItemSelected(

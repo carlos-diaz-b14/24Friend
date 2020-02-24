@@ -6,7 +6,7 @@ import java.util.*
 
 @Parcelize
 data class Message(val id: String,
-                   var postMessage: String,
-                   var fromUserID: String,
-                   var chatRoomID: String,
-                   var time: Int) : Parcelable
+                   var message: String,
+                   var userDocId: String,
+                   var roomDocId: String,
+                   var createdAt: String) : Parcelable

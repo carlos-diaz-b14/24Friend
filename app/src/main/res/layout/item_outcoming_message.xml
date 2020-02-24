@@ -14,7 +14,7 @@
         >
 
         <TextView
-            android:id="@+id/incomming_text_message"
+            android:id="@+id/outcomming_text_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -27,12 +27,12 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/incomming_message_time"
+            app:layout_constraintRight_toLeftOf="@+id/outcomming_message_time"
             app:layout_constraintHorizontal_weight="0.6"
             />
 
         <TextView
-            android:id="@+id/incomming_message_time"
+            android:id="@+id/outcomming_message_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -41,7 +41,7 @@
             android:textSize="12sp"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/incomming_text_message"
+            app:layout_constraintLeft_toRightOf="@+id/outcomming_text_message"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_weight="0.4"
             />

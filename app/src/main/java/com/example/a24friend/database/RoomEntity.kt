@@ -39,7 +39,7 @@ interface MessageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(message: List<MessageEntity>)
 
-    @Query("SELECT * FROM message ORDER BY time")
+    @Query("SELECT * FROM message ORDER BY createdAt")
     fun getAllMessages(): LiveData<List<MessageEntity>>
 
     @Query("DELETE FROM message")
@@ -66,7 +66,7 @@ fun getDatabase(context: Context): MessageDatabase {
                 context.applicationContext,
                 MessageDatabase::class.java,
                 "message_db"
-            ).build()
+            ).allowMainThreadQueries().build()
         }
     }
     return INSTANCE

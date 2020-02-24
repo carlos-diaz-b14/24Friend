@@ -2,18 +2,18 @@ package com.example.a24friend.ui.chatRoom
 
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 
-import com.example.a24friend.R
 import com.example.a24friend.databinding.FragmentChatRoomBinding
 import com.example.a24friend.domain.Message
-import com.example.a24friend.util.ApiStatus
+import com.example.a24friend.ui.MainActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -24,7 +24,8 @@ class ChatRoomFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProviders.of(this, ChatRoomViewModel.Factory(activity.application))
+        ViewModelProviders.of(this, ChatRoomViewModel.Factory(
+            activity.application,(requireNotNull(this.activity) as MainActivity).mUserId))
             .get(ChatRoomViewModel::class.java)
     }
 
@@ -32,9 +33,10 @@ class ChatRoomFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.message.observe(viewLifecycleOwner, Observer<List<Message>> { message ->
+        viewModel.messages.observe(viewLifecycleOwner, Observer<List<Message>> { message ->
             message.apply {
-                viewModelAdapter?.message = message
+                viewModelAdapter?.messages = message
+                viewModelAdapter?.addMessageList()
             }
         })
     }

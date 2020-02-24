@@ -109,9 +109,11 @@
 
     </string>
 
+    <string name="message_hint">message_hint</string>
     <string name="notification_title">24Friend</string>
     <string name="match_notification_channel_id">match_channel</string>
     <string name="match_notification_channel_name">match</string>
     <string name="match_notification_channel_description">match_description</string>
+    <string name="send_text">SEND</string>
 
 </resources>

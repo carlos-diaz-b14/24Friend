@@ -3,6 +3,7 @@ package com.example.a24friend.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.a24friend.database.MessageDatabase
+import com.example.a24friend.database.MessageEntity
 import com.example.a24friend.database.asDomainModel
 import com.example.a24friend.domain.Message
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,11 @@ class MessageRepository(private val database: MessageDatabase) {
     suspend fun clearMessage() {
         withContext(Dispatchers.IO) {
             database.messageDao.clear()
+        }
+    }
+    suspend fun saveMessage(message: MessageEntity) {
+        withContext(Dispatchers.IO) {
+            database.messageDao.insert(message)
         }
     }
 }

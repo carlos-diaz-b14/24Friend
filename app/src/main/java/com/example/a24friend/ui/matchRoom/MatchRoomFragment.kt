@@ -42,9 +42,6 @@ class MatchRoomFragment : Fragment() {
             var navController = findNavController()
             navController.navigate(R.id.action_matchRoomFragment_to_chatRoomFragment)
         })
-
         return binding.root
     }
-
-
 }
